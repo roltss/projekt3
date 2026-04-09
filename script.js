@@ -22,6 +22,13 @@ async function fetchWorld() {
     name.textContent = player.username;
     div.appendChild(name);
 
+    if (player.message !== null) {
+  const bubble = document.createElement('div');
+  bubble.classList.add('speech-bubble');
+  bubble.textContent = player.message;
+  div.appendChild(bubble);
+}
+
     world.appendChild(div);
   }
 }
