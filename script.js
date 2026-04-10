@@ -47,3 +47,14 @@ async function joinWorld() {
   localStorage.setItem('player_key', data.player_key);
   localStorage.setItem('username', username);
 }
+
+document.getElementById('world').addEventListener('click', async function(event) {
+  const x = event.offsetX;
+  const y = event.offsetY;
+  const playerKey = localStorage.getItem('player_key');
+  await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'move', player_key: playerKey, x: x, y: y })
+  });
+});
