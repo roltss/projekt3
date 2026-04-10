@@ -35,3 +35,15 @@ async function fetchWorld() {
 
 fetchWorld();
 setInterval(fetchWorld, 1000);
+
+async function joinWorld() {
+  const username = document.getElementById('username').value;
+  const response = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'join', username: username })
+  });
+  const data = await response.json();
+  localStorage.setItem('player_key', data.player_key);
+  localStorage.setItem('username', username);
+}
