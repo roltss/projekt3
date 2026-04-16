@@ -58,3 +58,13 @@ document.getElementById('world').addEventListener('click', async function(event)
     body: JSON.stringify({ action: 'move', player_key: playerKey, x: x, y: y })
   });
 });
+
+async function talkWorld() {
+  const message = document.getElementById('message').value;
+  const playerKey = localStorage.getItem('player_key');
+  await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'talk', player_key: playerKey, message: message })
+  });
+}
