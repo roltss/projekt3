@@ -46,6 +46,7 @@ async function joinWorld() {
   const data = await response.json();
   localStorage.setItem('player_key', data.player_key);
   localStorage.setItem('username', username);
+  alert('Tere tulemast, ' + username + '!');
 }
 
 document.getElementById('world').addEventListener('click', async function(event) {
@@ -61,7 +62,9 @@ document.getElementById('world').addEventListener('click', async function(event)
 
 async function talkWorld() {
   const message = document.getElementById('message').value;
-  const playerKey = localStorage.getItem('player_key');
+  const playerK
+    
+  y = localStorage.getItem('player_key');
   await fetch(API, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
