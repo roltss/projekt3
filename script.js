@@ -38,6 +38,10 @@ setInterval(fetchWorld, 1000);
 
 async function joinWorld() {
   const username = document.getElementById('username').value;
+  if (username === '') {
+  alert('Kirjuta nimi!');
+  return;
+}
   const response = await fetch(API, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -70,4 +74,6 @@ async function talkWorld() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ action: 'talk', player_key: playerKey, message: message })
   });
+  document.getElementById('message').value = '';
+
 }
