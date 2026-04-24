@@ -77,3 +77,9 @@ async function talkWorld() {
   document.getElementById('message').value = '';
 
 }
+
+document.getElementById('message').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    talkWorld();
+  }
+});
