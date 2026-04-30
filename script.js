@@ -83,3 +83,9 @@ document.getElementById('message').addEventListener('keydown', function(event) {
     talkWorld();
   }
 });
+
+document.getElementById('username').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    joinWorld();
+  }
+});
